@@ -7,6 +7,14 @@ Spring Boot application to expose Fate/Grand Order data for the Artificer applic
 3. `./gradlew init`
 4. `./gradlew clean build`
 
+* Windows 10 with Windows Subshell for Linux aka WSL (Recommended)
+* Git https://git-scm.com/download/win
+* Amazon Corretto 11 https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
+* Add git to PATH env variable
+* IntelliJ Community https://www.jetbrains.com/idea/download/#section=windows
+* Postman https://www.getpostman.com/downloads/
+* NoSQL Workbench https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html
+
 ## MVP - Materials Calculator
 Keeps track of what servants you have, which ones you want, the materials required, and the best places to find them.
 
