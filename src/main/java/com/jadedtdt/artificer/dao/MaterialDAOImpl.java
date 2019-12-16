@@ -44,8 +44,11 @@ public class MaterialDAOImpl implements MaterialDAO {
             try {
                 String json = objectMapper.writeValueAsString(eachMaterialEntity);
                 LOGGER.info(String.format("MaterialDAOImpl#getMaterials Jackson json: json[%s]", json));
+                // write jsonpath results to a json string
                 String jsonParsed = ((JSONArray)JsonPath.read(json, String.format(JSON_PATH_EXPRESSION_MATERIALS))).toJSONString();
+                // deserialize json to list of materials
                 List<MaterialEntity.Material> listMaterialsParsed = objectMapper.readValue(jsonParsed, new TypeReference<List<MaterialEntity.Material>>() {});
+                // send itemType down to nested object
                 listMaterialsParsed.forEach(eachMaterial -> eachMaterial.setItemType(eachMaterialEntity.getItemType()));
                 if (listMaterialsParsed == null || listMaterialsParsed.size() == 0) {
                     LOGGER.warn(String.format("MaterialDAOImpl#getMaterials JSONPath results is null or size 0: jsonPath[%s]", JSON_PATH_EXPRESSION_MATERIALS));
